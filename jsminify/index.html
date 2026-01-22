@@ -17,8 +17,10 @@
   <h2>Minified JS</h2>
   <div id="output"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/terser@5.22.1/dist/bundle.min.js"></script>
-  <script>
+  <!-- ESモジュールとして読み込む -->
+  <script type="module">
+    import * as Terser from 'https://cdn.jsdelivr.net/npm/terser@5.22.1/dist/bundle.min.js';
+
     const input = document.getElementById('input');
     const output = document.getElementById('output');
     const button = document.getElementById('minifyBtn');
