@@ -7,7 +7,7 @@
 <body>
 
 <a href="https://example.com" class="track-link">
-  ここをクリック
+  ここをクリック（画面は変わらない）
 </a>
 
 <script>
@@ -17,16 +17,20 @@
     const link = e.target.closest(".track-link");
     if (!link) return;
 
-    // 広告は1回だけ
+    // 本来のリンク遷移を止める
+    e.preventDefault();
+
     if (!adOpened) {
       adOpened = true;
 
-      // 広告用ポップアップ（別タブ）
+      // 広告タブだけ開く
       window.open(
-        "https://example.org", // ← 広告URL（ダミー）
+        "https://example.org", // 広告用
         "_blank"
       );
     }
+
+    // ここで何もしない → 今のタブはそのまま
   });
 </script>
 
