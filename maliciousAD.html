@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Popup Ad Sample</title>
+</head>
+<body>
+
+<a href="https://example.com" class="track-link">
+  ここをクリック
+</a>
+
+<script>
+  let adOpened = false;
+
+  document.addEventListener("click", function (e) {
+    const link = e.target.closest(".track-link");
+    if (!link) return;
+
+    // 広告は1回だけ
+    if (!adOpened) {
+      adOpened = true;
+
+      // 広告用ポップアップ（別タブ）
+      window.open(
+        "https://example.org", // ← 広告URL（ダミー）
+        "_blank"
+      );
+    }
+  });
+</script>
+
+</body>
+</html>
