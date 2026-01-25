@@ -1,11 +1,17 @@
-// メッセージ受信
-onmessage = (event) => {
-    const num = event.data;
-    console.log('メインスレッドから受信:', num);
+// worker.js
+console.log('🚀 Worker スレッドが正常に起動しました');
 
-    // ちょっと重い処理の例（平方計算）
-    const result = num * num;
+self.onmessage = function(e) {
+    console.log('📥 Workerがデータを受信しました:', e.data);
 
-    // 結果をメインスレッドに送信
-    postMessage(result);
+    // 処理のシミュレーション
+    try {
+        const result = e.data * 2; // 例：2倍にする処理
+        
+        console.log('⚙️ 演算完了。メインスレッドへ返信します:', result);
+        self.postMessage(result);
+        
+    } catch (err) {
+        console.error('⚠️ Worker演算中にエラー:', err);
+    }
 };
