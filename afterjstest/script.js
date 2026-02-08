@@ -8,7 +8,7 @@ addBtn.addEventListener('click', () => {
 
   // 画像追加
   const img = document.createElement('img');
-  img.src = 'https://via.placeholder.com/100'; // サンプル画像URL
+  img.src = 'https://uploads.scratch.mit.edu/get_image/project/1262961187_282x210.png'; // サンプル画像URL
   img.alt = 'サンプル画像';
 
   // テキスト追加
