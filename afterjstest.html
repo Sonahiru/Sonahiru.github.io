@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM描画サンプル</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card img {
+      width: 100px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>画像付きDOM追加サンプル</h1>
+  <button id="addBtn">カードを追加</button>
+  <div id="container"></div>
+
+  <script>
+    const container = document.getElementById('container');
+    const addBtn = document.getElementById('addBtn');
+
+    addBtn.addEventListener('click', () => {
+      // 新しいカード要素作成
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      // 画像追加
+      const img = document.createElement('img');
+      img.src = 'https://uploads.scratch.mit.edu/get_image/project/1262961187_282x210.png'; // サンプル画像URL
+      img.alt = 'サンプル画像';
+
+      // テキスト追加
+      const text = document.createElement('p');
+      text.textContent = 'これはサンプルカードです';
+
+      // カードに画像とテキストを追加
+      card.appendChild(img);
+      card.appendChild(text);
+
+      // コンテナにカードを追加
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
