@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Dynamic location access test</title>
+</head>
+<body>
+  <h1>Dynamic location access test</h1>
+  <button id="btn">Go to /next.html</button>
+
+  <script>
+    // これがポイント
+    const part1 = "loc";
+    const part2 = "ation";
+    const key = part1 + part2;
+
+    console.log("Detected href:", window[key].href);
+
+    document.getElementById("btn").addEventListener("click", () => {
+      // 静的置換では絶対に拾えない
+      window[key].href = "next.html";
+    });
+  </script>
+</body>
+</html>
