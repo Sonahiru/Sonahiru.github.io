@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Sample</title>
+</head>
+<body>
+  <h1>Cookie サンプル</h1>
+
+  <input type="text" id="cookieInput" placeholder="保存したい値">
+  <button onclick="saveCookie()">保存</button>
+  <button onclick="loadCookie()">読み込み</button>
+
+  <p id="result"></p>
+
+  <script>
+    function saveCookie() {
+      const value = document.getElementById("cookieInput").value;
+      // 7日間保存
+      const days = 7;
+      const date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      const expires = "expires=" + date.toUTCString();
+
+      document.cookie = "sampleCookie=" + encodeURIComponent(value) + ";" + expires + ";path=/";
+      alert("保存したよ");
+    }
+
+    function loadCookie() {
+      const name = "sampleCookie=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const cookies = decodedCookie.split(';');
+
+      for(let i = 0; i < cookies.length; i++) {
+        let c = cookies[i].trim();
+        if (c.indexOf(name) === 0) {
+          const value = c.substring(name.length, c.length);
+          document.getElementById("result").textContent = "保存されている値: " + value;
+          return;
+        }
+      }
+      document.getElementById("result").textContent = "Cookieが見つからない";
+    }
+  </script>
+</body>
+</html>
