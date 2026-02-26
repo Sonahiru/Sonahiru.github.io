@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookie Stress Test</title>
+</head>
+<body>
+  <button onclick="setCookies()">Set Many Cookies</button>
+
+  <script>
+    function setCookies() {
+      for (let i = 0; i < 1000; i++) {
+        document.cookie = "testCookie" + i + "=" + Math.random() + "; path=/";
+      }
+      alert("Cookies set!");
+    }
+  </script>
+</body>
+</html>
