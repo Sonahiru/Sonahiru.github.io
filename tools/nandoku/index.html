@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XOR Tool</title>
+</head>
+<body>
+
+<h3>Encode</h3>
+<textarea id="plain" placeholder="JSコード"></textarea><br>
+<input id="pass1" placeholder="pass"><br>
+<button onclick="enc()">Encode</button>
+
+<h3>Decode & Run</h3>
+<textarea id="cipher" placeholder="暗号文字列"></textarea><br>
+<input id="pass2" placeholder="pass"><br>
+<button onclick="dec()">Decode & Run</button>
+
+<script src="main.js"></script>
+<script>
+const enc=()=>cipher.value=e(plain.value,pass1.value);
+const dec=()=>s(cipher.value,pass2.value);
+</script>
+
+</body>
+</html>
