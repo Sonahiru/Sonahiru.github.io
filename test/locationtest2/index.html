@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Dynamic location access test</title>
+</head>
+<body>
+  <h1>Dynamic location access test</h1>
+  <button id="btn">Go to /next.html</button>
+
+  <script>
+    document.getElementById("btn").addEventListener("click", () => {
+      window.location.href = "next.html";
+    });
+  </script>
+</body>
+</html>
